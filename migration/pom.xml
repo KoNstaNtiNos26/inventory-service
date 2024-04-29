@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>net.azul.bookstore</groupId>
+        <artifactId>inventory</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>migration</artifactId>
+
+    <properties>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
+        <changelog.file>liquibase/changelog-master.xml</changelog.file>
+<!--        <liquibase.url>jdbc:postgresql://localhost:5432/${env.DB}</liquibase.url>-->
+<!--        <liquibase.user>${env.DB_USER}</liquibase.user>-->
+<!--        <liquibase.password>${env.DB_PASSWORD}</liquibase.password>-->
+
+        <liquibase.url>jdbc:postgresql://inventory-db:5432/inventory</liquibase.url>
+        <liquibase.user>inventory_user</liquibase.user>
+        <liquibase.password>strongpassword</liquibase.password>
+        <liquibase.version>4.26.0</liquibase.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.liquibase</groupId>
+            <artifactId>liquibase-core</artifactId>
+            <version>${liquibase.version}</version>
+        </dependency>
+    </dependencies>
+
+<!--    <build>-->
+<!--        <plugins>-->
+<!--            <plugin>-->
+<!--                <groupId>org.liquibase</groupId>-->
+<!--                <artifactId>liquibase-maven-plugin</artifactId>-->
+<!--                <version>${liquibase.version}</version>-->
+<!--                <configuration>-->
+<!--                    <driver>org.postgresql.Driver</driver>-->
+<!--                    <url>${liquibase.url}</url>-->
+<!--                    <username>${liquibase.user}</username>-->
+<!--                    <password>${liquibase.password}</password>-->
+
+<!--                    <defaultSchemaName>inv</defaultSchemaName>-->
+<!--                    <changelogSchemaName>inv</changelogSchemaName>-->
+
+<!--                    <changeLogFile>${changelog.file}</changeLogFile>-->
+<!--                </configuration>-->
+<!--                <dependencies>-->
+<!--                    <dependency>-->
+<!--                        <groupId>org.postgresql</groupId>-->
+<!--                        <artifactId>postgresql</artifactId>-->
+<!--                        <version>${postgresql.version}</version>-->
+<!--                    </dependency>-->
+<!--                </dependencies>-->
+<!--            </plugin>-->
+<!--        </plugins>-->
+<!--    </build>-->
+
+</project>
